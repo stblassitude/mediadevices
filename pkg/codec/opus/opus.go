@@ -50,7 +50,8 @@ func newEncoder(r audio.Reader, p prop.Media, params Params) (codec.ReadCloser, 
 		return nil, fmt.Errorf("opus: unsupported latency %v", params.Latency)
 	}
 
-	channels := p.ChannelCount
+	//channels := p.ChannelCount
+	channels := 1
 
 	engine := C.opus_encoder_create(
 		C.opus_int32(p.SampleRate),
